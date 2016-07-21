@@ -299,9 +299,9 @@ def main(num_epochs=500,fin_params=None,fout_params=None,A_B=None, rank=None):
         O = lasagne.layers.get_all_layers(network)
         if rank is not None:
             # try largest 1-rank approximate
-            A = load_largest_rank(A, O, rank)
+            # A = load_largest_rank(A, O, rank)
             # try largest 1-rank approximate
-            # A = load_smallest_rank(A, O, rank)
+            A = load_smallest_rank(A, O, rank)
         lasagne.layers.set_all_param_values(network, A)
     params = lasagne.layers.get_all_params(network, trainable=True)
     # Create a loss expression for training
